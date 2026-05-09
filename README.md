@@ -132,7 +132,7 @@ streamlit run app.py
 Aplikasi akan terbuka di browser pada:
 
 ```txt
-http://localhost:8501
+https://sadar-finance-dashboard.streamlit.app/
 ```
 
 ---
