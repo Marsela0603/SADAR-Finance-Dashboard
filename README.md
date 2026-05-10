@@ -126,7 +126,7 @@ Langkah-langkah:
 ### Menjalankan Dashboard
 
 ```bash
-streamlit run app.py
+streamlit run dashboard.py
 ```
 
 Aplikasi akan terbuka di browser pada:
