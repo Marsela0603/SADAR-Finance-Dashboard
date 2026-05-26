@@ -110,13 +110,7 @@ html, body, [class*="css"] {{
 }}
 
 .stApp {{
-    background-color: {C_BG};
-    background-image: 
-        linear-gradient(90deg, transparent 24%, rgba(100, 171, 136, 0.05) 25%, rgba(100, 171, 136, 0.05) 26%, transparent 27%, transparent 74%, rgba(100, 171, 136, 0.05) 75%, rgba(100, 171, 136, 0.05) 76%, transparent 77%, transparent),
-        linear-gradient(90deg, transparent 24%, rgba(12, 57, 84, 0.08) 25%, rgba(12, 57, 84, 0.08) 26%, transparent 27%, transparent 74%, rgba(12, 57, 84, 0.08) 75%, rgba(12, 57, 84, 0.08) 76%, transparent 77%, transparent),
-        linear-gradient(135deg, {C_BG} 0%, #A8C5E0 50%, #E5E9F2 100%);
-    background-size: 50px 100%, 40px 80%, 100% 100%;
-    background-position: 0 0, 10px 20px, 0 0;
+    background: linear-gradient(135deg, {C_BG} 0%, #E5E9F2 100%);
 }}
 
 .block-container {{
