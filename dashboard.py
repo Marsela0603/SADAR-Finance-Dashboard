@@ -362,7 +362,7 @@ with st.sidebar:
     )
 
     st.markdown(
-        "<p style='text-align:center;'>Smart Financial Analytics</p>",
+        "<p>Smart Financial Analytics</p>",
         unsafe_allow_html=True
     )
 
