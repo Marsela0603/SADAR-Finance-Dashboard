@@ -22,7 +22,7 @@ C_PRIMARY   = "#0C3954"
 C_SECONDARY = "#64AB88"
 C_ACCENT    = "#0054A6"
 C_MINT      = "#DCEBE4"
-C_BG        = "#748BB9"
+C_BG        = "#667BA5"
 C_BLUE      = "#7DB3F1"
 C_BORDER    = "#CFCFCF"
 C_SUCCESS   = "#2ECC71"
@@ -608,29 +608,29 @@ elif page == "📊 EDA & Business Questions":
         unsafe_allow_html=True
     )
 
-    # QUESTION 1
-    st.markdown("""
+    # QUESTION 1: DISTRIBUSI PENGELUARAN (3 BULAN TERAKHIR)
+    st.markdown(f"""
     <div class='insight-box'>
-    <b>1. Bagaimana distribusi pengeluaran user berdasarkan kategori?</b>
+    <b style='color:{C_PRIMARY}'>1. Bagaimana distribusi pengeluaran user berdasarkan kategori dalam 3 bulan terakhir?</b>
     </div>
     """, unsafe_allow_html=True)
 
-    category_spending = (
-        dff.groupby('category_primary')['amount']
-        .sum()
-        .reset_index()
-    )
+    last_3_months = dff[dff['date'] >= dff['date'].max() - pd.DateOffset(months=3)]
+    category_spending = last_3_months.groupby('category_primary')['amount'].sum().sort_values()
 
     fig1 = px.bar(
-        category_spending,
-        x='category_primary',
-        y='amount',
-        color='amount'
+        x=category_spending.values,
+        y=category_spending.index,
+        orientation='h',
+        color=category_spending.values,
+        color_continuous_scale=[C_SECONDARY, C_ACCENT]
     )
 
     fig1.update_layout(
         **PLOTLY_LAYOUT,
-        height=450
+        height=450,
+        xaxis_title="Total Pengeluaran",
+        yaxis_title="Kategori"
     )
 
     st.plotly_chart(
@@ -638,17 +638,15 @@ elif page == "📊 EDA & Business Questions":
         use_container_width=True
     )
 
-    # QUESTION 2
-    st.markdown("""
+    # QUESTION 2: KATEGORI PALING MENINGKAT
+    st.markdown(f"""
     <div class='insight-box'>
-    <b>2. Kategori apa yang mengalami peningkatan pengeluaran terbesar?</b>
+    <b style='color:{C_PRIMARY}'>2. Kategori apa yang mengalami peningkatan pengeluaran terbesar dari bulan ke bulan?</b>
     </div>
     """, unsafe_allow_html=True)
 
     monthly_category = (
-        dff.groupby(
-            ['month', 'category_primary']
-        )['amount']
+        dff.groupby(['month', 'category_primary'])['amount']
         .sum()
         .reset_index()
     )
@@ -672,10 +670,10 @@ elif page == "📊 EDA & Business Questions":
         use_container_width=True
     )
 
-    # QUESTION 3
-    st.markdown("""
+    # QUESTION 3: HARI PALING SERING TRANSAKSI
+    st.markdown(f"""
     <div class='insight-box'>
-    <b>3. Hari apa transaksi paling sering terjadi?</b>
+    <b style='color:{C_PRIMARY}'>3. Pada hari apa transaksi paling sering terjadi?</b>
     </div>
     """, unsafe_allow_html=True)
 
@@ -685,18 +683,21 @@ elif page == "📊 EDA & Business Questions":
         .reset_index()
     )
 
-    day_freq.columns = ['day', 'count']
+    day_freq.columns = ['day_of_week', 'count']
 
     fig3 = px.bar(
         day_freq,
-        x='day',
+        x='day_of_week',
         y='count',
-        color='count'
+        color='count',
+        color_continuous_scale=[C_BLUE, C_ACCENT]
     )
 
     fig3.update_layout(
         **PLOTLY_LAYOUT,
-        height=450
+        height=450,
+        xaxis_title="Hari",
+        yaxis_title="Jumlah Transaksi"
     )
 
     st.plotly_chart(
@@ -704,10 +705,10 @@ elif page == "📊 EDA & Business Questions":
         use_container_width=True
     )
 
-    # QUESTION 4
-    st.markdown("""
+    # QUESTION 4: RATA-RATA PENGELUARAN HARIAN
+    st.markdown(f"""
     <div class='insight-box'>
-    <b>4. Bagaimana perubahan rata-rata pengeluaran harian?</b>
+    <b style='color:{C_PRIMARY}'>4. Berapa rata-rata pengeluaran harian user dan bagaimana perubahannya dari waktu ke waktu?</b>
     </div>
     """, unsafe_allow_html=True)
 
@@ -734,10 +735,10 @@ elif page == "📊 EDA & Business Questions":
         use_container_width=True
     )
 
-    # QUESTION 5
-    st.markdown("""
+    # QUESTION 5: WAKTU PALING BERISIKO LONJAKAN PENGELUARAN
+    st.markdown(f"""
     <div class='insight-box'>
-    <b>5. Kapan terjadi lonjakan pengeluaran?</b>
+    <b style='color:{C_PRIMARY}'>5. Kapan waktu paling berisiko user mengalami lonjakan pengeluaran?</b>
     </div>
     """, unsafe_allow_html=True)
 
@@ -756,7 +757,8 @@ elif page == "📊 EDA & Business Questions":
         spike_by_day,
         x='day_of_week',
         y='spike',
-        color='spike'
+        color='spike',
+        color_continuous_scale=[C_WARNING, C_ERROR]
     )
 
     fig5.update_layout(
@@ -769,10 +771,10 @@ elif page == "📊 EDA & Business Questions":
         use_container_width=True
     )
 
-    # QUESTION 6
-    st.markdown("""
+    # QUESTION 6: METODE PEMBAYARAN vs SPENDING
+    st.markdown(f"""
     <div class='insight-box'>
-    <b>6. Apakah ada perbedaan pengeluaran berdasarkan metode pembayaran?</b>
+    <b style='color:{C_PRIMARY}'>6. Apakah terdapat perbedaan rata-rata pengeluaran berdasarkan metode pembayaran?</b>
     </div>
     """, unsafe_allow_html=True)
 
@@ -786,7 +788,8 @@ elif page == "📊 EDA & Business Questions":
         payment_avg,
         x='payment_method',
         y='amount',
-        color='amount'
+        color='amount',
+        color_continuous_scale=[C_SUCCESS, C_ACCENT]
     )
 
     fig6.update_layout(
@@ -1056,13 +1059,65 @@ elif page == "📋 Dataset Information":
         unsafe_allow_html=True
     )
 
-    dd = pd.DataFrame({
-        "Column": df.columns,
-        "Data Type": df.dtypes.astype(str)
-    })
+    data_dict = {
+        "No": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+        "Nama Kolom": [
+            "transaction_id", "user_id", "date", "merchant", "amount",
+            "category_detail", "category_primary", "payment_method", "payment_media", "day_of_week",
+            "month", "is_weekend", "day", "week", "time_of_day",
+            "spending_level", "log_amount", "rolling_7d_spending", "transaction_count", "spike"
+        ],
+        "Tipe Data": [
+            "string", "string", "datetime", "string", "float",
+            "string", "string", "string", "string", "string",
+            "integer", "boolean", "integer", "integer", "string",
+            "string", "float", "float", "integer", "boolean"
+        ],
+        "Deskripsi": [
+            "ID unik untuk setiap transaksi pengguna",
+            "ID unik yang merepresentasikan masing-masing pengguna",
+            "Tanggal dan waktu terjadinya transaksi",
+            "Nama merchant atau penyedia layanan tempat transaksi dilakukan",
+            "Nominal pengeluaran pada setiap transaksi",
+            "Kategori detail transaksi yang lebih spesifik seperti groceries, entertainment, transport, dan utilities",
+            "Kategori utama transaksi yang terdiri dari Needs, Wants, dan Investment",
+            "Metode pembayaran yang digunakan pengguna seperti cash, transfer, debit, credit card, atau QRIS",
+            "Media atau platform pembayaran yang digunakan seperti DANA, OVO, GoPay, ShopeePay, atau bank tertentu",
+            "Hari dalam satu minggu saat transaksi dilakukan",
+            "Bulan terjadinya transaksi dalam format numerik (1–12)",
+            "Menunjukkan apakah transaksi terjadi pada akhir pekan (Sabtu/Minggu)",
+            "Tanggal dalam satu bulan berdasarkan waktu transaksi",
+            "Minggu ke dalam satu tahun berdasarkan kalender ISO",
+            "Kategori waktu transaksi berdasarkan jam, yaitu Pagi, Siang, Sore, dan Malam",
+            "Kategori tingkat pengeluaran berdasarkan nominal transaksi (low, medium, high)",
+            "Hasil transformasi logaritmik dari nilai amount untuk membantu menstabilkan distribusi data",
+            "Total akumulasi pengeluaran dari 7 transaksi terakhir sebagai indikator tren pengeluaran pengguna",
+            "Jumlah transaksi yang terjadi pada periode waktu tertentu",
+            "Indikator lonjakan pengeluaran, bernilai true jika transaksi termasuk kategori pengeluaran tinggi atau outlier"
+        ]
+    }
+
+    dd = pd.DataFrame(data_dict)
 
     st.dataframe(
         dd,
         use_container_width=True,
-        hide_index=True
+        hide_index=True,
+        height=600
     )
+
+    st.markdown(f"""
+    <div class='insight-box'>
+    <b style='color:{C_PRIMARY}; font-size:16px;'>Penjelasan Tambahan:</b><br>
+    <p style='color:{C_PRIMARY}; font-size:14px; line-height:1.8;'>
+    Beberapa fitur tambahan dihasilkan melalui proses <b>feature engineering</b> untuk mendukung analisis perilaku keuangan dan pengembangan model prediksi, di antaranya:
+    </p>
+    <ul style='color:{C_PRIMARY}; font-size:14px; line-height:2;'>
+        <li><b>spending_level</b> digunakan untuk mengelompokkan transaksi berdasarkan tingkat pengeluaran pengguna.</li>
+        <li><b>rolling_7d_spending</b> digunakan untuk mengidentifikasi tren pengeluaran dalam periode terbaru.</li>
+        <li><b>spike</b> digunakan sebagai indikator awal untuk mendeteksi potensi lonjakan pengeluaran (overspending).</li>
+        <li><b>time_of_day</b> digunakan untuk menganalisis pola transaksi berdasarkan waktu aktivitas pengguna.</li>
+        <li><b>log_amount</b> digunakan untuk membantu meningkatkan stabilitas distribusi data dan performa model machine learning.</li>
+    </ul>
+    </div>
+    """, unsafe_allow_html=True)
