@@ -483,8 +483,10 @@ if page == "🏠 Overview":
 
     fig.update_layout(
         **PLOTLY_LAYOUT,
-        height=450
-    )
+        height=450,
+        xaxis=dict(tickfont=dict(color=C_PRIMARY)),
+        yaxis=dict(tickfont=dict(color=C_PRIMARY)),
+    )   
 
     st.plotly_chart(
         fig,
@@ -557,7 +559,9 @@ if page == "🏠 Overview":
 
         fig3.update_layout(
             **PLOTLY_LAYOUT,
-            height=500
+            height=500,
+            xaxis=dict(tickfont=dict(color=C_PRIMARY)),
+            yaxis=dict(tickfont=dict(color=C_PRIMARY))
         )
 
         st.plotly_chart(
@@ -583,14 +587,16 @@ if page == "🏠 Overview":
         y='amount',
         color='amount',
         color_continuous_scale=[
-            '#DCEBE4',
+            "#626B67",
             C_PRIMARY
         ]
     )
 
     fig4.update_layout(
         **PLOTLY_LAYOUT,
-        height=450
+        height=450,
+        xaxis=dict(tickfont=dict(color=C_PRIMARY)),
+        yaxis=dict(tickfont=dict(color=C_PRIMARY))
     )
 
     st.plotly_chart(
