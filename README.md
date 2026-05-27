@@ -110,7 +110,7 @@ pip install -r requirements.txt
 **Download Dataset dari Google Drive:**
 
 ```txt
-https://drive.google.com/file/d/1olRbrT_itRLCuzf9MnFf85i-7WwXwKpW/view?usp=drive_link
+https://drive.google.com/file/d/1dj122OZA7SmNCpwcSoXaEGE9PY6rlEn5/view?usp=drive_link
 ```
 
 Langkah-langkah:
