@@ -400,19 +400,6 @@ with st.sidebar:
         default=sorted(df['payment_media'].dropna().unique())
     )
 
-    st.markdown("---")
-
-    st.markdown(
-        f"""
-        <div style='text-align: center; color: {C_MUTED}; font-size: 12px; margin-top: 10px;'>
-            <p style='margin: 0;'><b>Sadar Finance</b></p>
-            <p style='margin: 5px 0;'>Coding Camp 2026</p>
-            <p style='margin: 0;'>CC26-PSU124</p>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
-
 # ─────────────────────────────────────────────
 # FILTER
 # ─────────────────────────────────────────────
@@ -1184,3 +1171,17 @@ elif page == "📋 Dataset Information":
     </ul>
     </div>
     """, unsafe_allow_html=True)
+
+# ─────────────────────────────────────────────
+# FOOTER
+# ─────────────────────────────────────────────
+st.markdown(
+    f"""
+    <div style='position:fixed; left:300px; right:0; bottom:0; background-color: white; color: {C_PRIMARY}; font-size: 13px; padding: 12px 0; margin: 0; border-radius: 0; z-index: 9999;'>
+        <div style='display:flex; justify-content:center; align-items:center; width:100%;'>
+            <p style='margin: 0; font-weight: 600;'>Sadar Finance - Coding Camp 2026 - CC26-PSU124</p>
+        </div>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
