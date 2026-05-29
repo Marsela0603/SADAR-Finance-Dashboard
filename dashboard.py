@@ -1177,7 +1177,7 @@ elif page == "📋 Dataset Information":
 # ─────────────────────────────────────────────
 st.markdown(
     f"""
-    <div style='position:fixed; left:300px; right:0; bottom:0; background-color: white; color: {C_PRIMARY}; font-size: 13px; padding: 12px 0; margin: 0; border-radius: 0; z-index: 9999;'>
+    <div style='position:fixed; left:300px; right:0; bottom:0; background-color: {C_PRIMARY}; color: white; font-size: 13px; padding: 12px 0; margin: 0; border-radius: 0; z-index: 9999;'>
         <div style='display:flex; justify-content:center; align-items:center; width:100%;'>
             <p style='margin: 0; font-weight: 600;'>Sadar Finance - Coding Camp 2026 - CC26-PSU124</p>
         </div>
