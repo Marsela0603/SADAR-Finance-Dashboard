@@ -136,6 +136,7 @@ html, body, [class*="css"] {{
     background: linear-gradient(135deg, {C_PRIMARY} 0%, {C_ACCENT} 100%);
     border-radius:28px;
     padding:50px 40px;
+    margin-top:50px;
     margin-bottom:35px;
     animation: slideInLeft 0.8s ease-out;
     position: relative;
@@ -399,6 +400,19 @@ with st.sidebar:
         default=sorted(df['payment_media'].dropna().unique())
     )
 
+    st.markdown("---")
+
+    st.markdown(
+        f"""
+        <div style='text-align: center; color: {C_MUTED}; font-size: 12px; margin-top: 10px;'>
+            <p style='margin: 0;'><b>Sadar Finance</b></p>
+            <p style='margin: 5px 0;'>Coding Camp 2026</p>
+            <p style='margin: 0;'>CC26-PSU124</p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
 # ─────────────────────────────────────────────
 # FILTER
 # ─────────────────────────────────────────────
@@ -484,8 +498,8 @@ if page == "🏠 Overview":
     fig.update_layout(
         **PLOTLY_LAYOUT,
         height=450,
-        xaxis=dict(tickfont=dict(color=C_PRIMARY)),
-        yaxis=dict(tickfont=dict(color=C_PRIMARY)),
+        xaxis=dict(tickfont=dict(color=C_PRIMARY), title_font=dict(color=C_PRIMARY)),
+        yaxis=dict(tickfont=dict(color=C_PRIMARY), title_font=dict(color=C_PRIMARY)),
     )   
 
     st.plotly_chart(
@@ -519,7 +533,8 @@ if page == "🏠 Overview":
 
         fig2.update_layout(
             **PLOTLY_LAYOUT,
-            height=500
+            height=500,
+            legend=dict(font=dict(color=C_PRIMARY))
         )
 
         st.plotly_chart(
@@ -560,8 +575,9 @@ if page == "🏠 Overview":
         fig3.update_layout(
             **PLOTLY_LAYOUT,
             height=500,
-            xaxis=dict(tickfont=dict(color=C_PRIMARY)),
-            yaxis=dict(tickfont=dict(color=C_PRIMARY))
+            xaxis=dict(tickfont=dict(color=C_PRIMARY), title_font=dict(color=C_PRIMARY)),
+            yaxis=dict(tickfont=dict(color=C_PRIMARY), title_font=dict(color=C_PRIMARY)),
+            coloraxis_colorbar=dict(tickfont=dict(color=C_PRIMARY), title_font=dict(color=C_PRIMARY))
         )
 
         st.plotly_chart(
@@ -587,7 +603,7 @@ if page == "🏠 Overview":
         y='amount',
         color='amount',
         color_continuous_scale=[
-            "#626B67",
+            "#6FC39F",
             C_PRIMARY
         ]
     )
@@ -595,8 +611,9 @@ if page == "🏠 Overview":
     fig4.update_layout(
         **PLOTLY_LAYOUT,
         height=450,
-        xaxis=dict(tickfont=dict(color=C_PRIMARY)),
-        yaxis=dict(tickfont=dict(color=C_PRIMARY))
+        xaxis=dict(tickfont=dict(color=C_PRIMARY), title_font=dict(color=C_PRIMARY)),
+        yaxis=dict(tickfont=dict(color=C_PRIMARY), title_font=dict(color=C_PRIMARY)),
+        coloraxis_colorbar=dict(tickfont=dict(color=C_PRIMARY), title_font=dict(color=C_PRIMARY))
     )
 
     st.plotly_chart(
@@ -636,7 +653,10 @@ elif page == "📊 EDA & Business Questions":
         **PLOTLY_LAYOUT,
         height=450,
         xaxis_title="Total Pengeluaran",
-        yaxis_title="Kategori"
+        yaxis_title="Kategori",
+        xaxis=dict(tickfont=dict(color=C_PRIMARY), title_font=dict(color=C_PRIMARY)),
+        yaxis=dict(tickfont=dict(color=C_PRIMARY), title_font=dict(color=C_PRIMARY)),
+        coloraxis_colorbar=dict(tickfont=dict(color=C_PRIMARY), title_font=dict(color=C_PRIMARY))
     )
 
     st.plotly_chart(
@@ -668,7 +688,13 @@ elif page == "📊 EDA & Business Questions":
 
     fig2.update_layout(
         **PLOTLY_LAYOUT,
-        height=450
+        height=450,
+        xaxis=dict(tickfont=dict(color=C_PRIMARY), title_font=dict(color=C_PRIMARY)),
+        yaxis=dict(tickfont=dict(color=C_PRIMARY), title_font=dict(color=C_PRIMARY)),
+        legend=dict(
+            title=dict(text='category_primary', font=dict(color=C_PRIMARY)),
+            font=dict(color=C_PRIMARY)
+        )
     )
 
     st.plotly_chart(
@@ -703,7 +729,10 @@ elif page == "📊 EDA & Business Questions":
         **PLOTLY_LAYOUT,
         height=450,
         xaxis_title="Hari",
-        yaxis_title="Jumlah Transaksi"
+        yaxis_title="Jumlah Transaksi",
+        xaxis=dict(tickfont=dict(color=C_PRIMARY), title_font=dict(color=C_PRIMARY)),
+        yaxis=dict(tickfont=dict(color=C_PRIMARY), title_font=dict(color=C_PRIMARY)),
+        coloraxis_colorbar=dict(tickfont=dict(color=C_PRIMARY), title_font=dict(color=C_PRIMARY))
     )
 
     st.plotly_chart(
@@ -733,7 +762,9 @@ elif page == "📊 EDA & Business Questions":
 
     fig4.update_layout(
         **PLOTLY_LAYOUT,
-        height=450
+        height=450,
+        xaxis=dict(tickfont=dict(color=C_PRIMARY), title_font=dict(color=C_PRIMARY)),
+        yaxis=dict(tickfont=dict(color=C_PRIMARY), title_font=dict(color=C_PRIMARY)),
     )
 
     st.plotly_chart(
@@ -769,7 +800,10 @@ elif page == "📊 EDA & Business Questions":
 
     fig5.update_layout(
         **PLOTLY_LAYOUT,
-        height=450
+        height=450,
+        xaxis=dict(tickfont=dict(color=C_PRIMARY), title_font=dict(color=C_PRIMARY)),
+        yaxis=dict(tickfont=dict(color=C_PRIMARY), title_font=dict(color=C_PRIMARY)),
+        coloraxis_colorbar=dict(tickfont=dict(color=C_PRIMARY), title_font=dict(color=C_PRIMARY))
     )
 
     st.plotly_chart(
@@ -800,7 +834,10 @@ elif page == "📊 EDA & Business Questions":
 
     fig6.update_layout(
         **PLOTLY_LAYOUT,
-        height=450
+        height=450,
+        xaxis=dict(tickfont=dict(color=C_PRIMARY), title_font=dict(color=C_PRIMARY)),
+        yaxis=dict(tickfont=dict(color=C_PRIMARY), title_font=dict(color=C_PRIMARY)),
+        coloraxis_colorbar=dict(tickfont=dict(color=C_PRIMARY), title_font=dict(color=C_PRIMARY))
     )
 
     st.plotly_chart(
@@ -838,7 +875,11 @@ elif page == "📈 Financial Behavior":
 
         fig.update_layout(
             **PLOTLY_LAYOUT,
-            height=420
+            height=420,
+            title_font=dict(color=C_PRIMARY),
+            xaxis=dict(tickfont=dict(color=C_PRIMARY), title_font=dict(color=C_PRIMARY)),
+            yaxis=dict(tickfont=dict(color=C_PRIMARY), title_font=dict(color=C_PRIMARY)),
+            coloraxis_colorbar=dict(tickfont=dict(color=C_PRIMARY), title_font=dict(color=C_PRIMARY))
         )
 
         st.plotly_chart(
@@ -864,7 +905,11 @@ elif page == "📈 Financial Behavior":
 
         fig2.update_layout(
             **PLOTLY_LAYOUT,
-            height=420
+            height=420,
+            title_font=dict(color=C_PRIMARY),
+            xaxis=dict(tickfont=dict(color=C_PRIMARY), title_font=dict(color=C_PRIMARY)),
+            yaxis=dict(tickfont=dict(color=C_PRIMARY), title_font=dict(color=C_PRIMARY)),
+            coloraxis_colorbar=dict(tickfont=dict(color=C_PRIMARY), title_font=dict(color=C_PRIMARY))
         )
 
         st.plotly_chart(
@@ -887,7 +932,9 @@ elif page == "📈 Financial Behavior":
 
     fig3.update_layout(
         **PLOTLY_LAYOUT,
-        height=450
+        height=450,
+        xaxis=dict(tickfont=dict(color=C_PRIMARY), title_font=dict(color=C_PRIMARY)),
+        yaxis=dict(tickfont=dict(color=C_PRIMARY), title_font=dict(color=C_PRIMARY))
     )
 
     st.plotly_chart(
@@ -919,7 +966,8 @@ elif page == "📈 Financial Behavior":
 
     fig4.update_layout(
         **PLOTLY_LAYOUT,
-        height=480
+        height=480,
+        legend=dict(font=dict(color=C_PRIMARY))
     )
 
     st.plotly_chart(
@@ -941,6 +989,7 @@ elif page == "🔍 Interactive Exploration":
 
     with col1:
 
+        st.markdown(f"<p style='color:{C_PRIMARY}; font-weight: 600;'>Pilih Sumbu X</p>", unsafe_allow_html=True)
         x_axis = st.selectbox(
             "Pilih Sumbu X",
             [
@@ -951,21 +1000,26 @@ elif page == "🔍 Interactive Exploration":
                 'merchant',
                 'day_of_week',
                 'month'
-            ]
+            ],
+            label_visibility="collapsed"
         )
 
     with col2:
 
+        st.markdown(f"<p style='color:{C_PRIMARY}; font-weight: 600;'>Pilih Aggregation</p>", unsafe_allow_html=True)
         agg = st.selectbox(
             "Pilih Aggregation",
-            ['sum', 'mean', 'count']
+            ['sum', 'mean', 'count'],
+            label_visibility="collapsed"
         )
 
     with col3:
 
+        st.markdown(f"<p style='color:{C_PRIMARY}; font-weight: 600;'>Pilih Chart</p>", unsafe_allow_html=True)
         chart_type = st.selectbox(
             "Pilih Chart",
-            ['Bar', 'Pie', 'Line']
+            ['Bar', 'Pie', 'Line'],
+            label_visibility="collapsed"
         )
 
     grouped = (
@@ -1005,7 +1059,10 @@ elif page == "🔍 Interactive Exploration":
 
     fig.update_layout(
         **PLOTLY_LAYOUT,
-        height=500
+        height=500,
+        xaxis=dict(tickfont=dict(color=C_PRIMARY), title_font=dict(color=C_PRIMARY)),
+        yaxis=dict(tickfont=dict(color=C_PRIMARY), title_font=dict(color=C_PRIMARY)),
+        coloraxis_colorbar=dict(tickfont=dict(color=C_PRIMARY), title_font=dict(color=C_PRIMARY))
     )
 
     st.plotly_chart(
