@@ -376,7 +376,8 @@ with st.sidebar:
             "📊 EDA & Business Questions",
             "📈 Financial Behavior",
             "🔍 Interactive Exploration",
-            "📋 Dataset Information"
+            "📋 Dataset Information",
+            "👥 Teams"
         ]
     )
 
@@ -1173,15 +1174,115 @@ elif page == "📋 Dataset Information":
     """, unsafe_allow_html=True)
 
 # ─────────────────────────────────────────────
+# TEAMS
+# ─────────────────────────────────────────────
+elif page == "👥 Teams":
+
+        st.markdown(
+                "<div class='section-title'>Teams</div>",
+                unsafe_allow_html=True
+        )
+
+        teams_html = f"""
+        <div class='card' style='margin-bottom: 100px;'>
+            <table style='width:100%; border-collapse:collapse;'>
+                <thead>
+                 <tr style='background:{C_PRIMARY}; color:white;'>
+                     <th style='padding:12px 8px; text-align:left;'>Nama Lengkap</th>
+                     <th style='padding:12px 8px; text-align:left;'>ID Cohort</th>
+                     <th style='padding:12px 8px; text-align:left;'>Learning Path</th>
+                     <th style='padding:12px 8px; text-align:left;'>Link Linkedin</th>
+                     <th style='padding:12px 8px; text-align:left;'>Link Github</th>
+                 </tr>
+                </thead>
+                <tbody>
+                 <tr style='border-bottom:1px solid #f0f0f0;'>
+                     <td style='padding:12px 8px; color:{C_PRIMARY}; font-weight:600;'>Diah Ayu Puspasari</td>
+                     <td style='padding:12px 8px; color:{C_PRIMARY};'>CDCC156D6X1244</td>
+                     <td style='padding:12px 8px; color:{C_PRIMARY};'>Data Scientist</td>
+                     <td style='padding:12px 8px;'><a style='color:{C_PRIMARY}; font-weight:500;' href='https://www.linkedin.com/in/diahaps/' target='_blank'>Linkedin</a></td>
+                     <td style='padding:12px 8px;'><a style='color:{C_PRIMARY}; font-weight:500;' href='https://github.com/Diahayuups' target='_blank'>Github</a></td>
+                 </tr>
+                 <tr style='border-bottom:1px solid #f0f0f0;'>
+                     <td style='padding:12px 8px; color:{C_PRIMARY}; font-weight:600;'>Marsela</td>
+                     <td style='padding:12px 8px; color:{C_PRIMARY};'>CDCC156D6X0281</td>
+                     <td style='padding:12px 8px; color:{C_PRIMARY};'>Data Scientist</td>
+                     <td style='padding:12px 8px;'><a style='color:{C_PRIMARY}; font-weight:500;' href='https://www.linkedin.com/in/marsela-marsela-30a763248/' target='_blank'>Linkedin</a></td>
+                     <td style='padding:12px 8px;'><a style='color:{C_PRIMARY}; font-weight:500;' href='https://github.com/Marsela0603' target='_blank'>Github</a></td>
+                 </tr>
+                 <tr style='border-bottom:1px solid #f0f0f0;'>
+                     <td style='padding:12px 8px; color:{C_PRIMARY}; font-weight:600;'>Farrel Al Faqih Ekatama</td>
+                     <td style='padding:12px 8px; color:{C_PRIMARY};'>CACC295D6Y0695</td>
+                     <td style='padding:12px 8px; color:{C_PRIMARY};'>AI Engineer</td>
+                     <td style='padding:12px 8px;'><a style='color:{C_PRIMARY}; font-weight:500;' href='https://www.linkedin.com/in/farrel-al-faqih-ekatama-339980217/' target='_blank'>Linkedin</a></td>
+                     <td style='padding:12px 8px;'><a style='color:{C_PRIMARY}; font-weight:500;' href='https://github.com/farrelalfaqih' target='_blank'>Github</a></td>
+                 </tr>
+                 <tr style='border-bottom:1px solid #f0f0f0;'>
+                     <td style='padding:12px 8px; color:{C_PRIMARY}; font-weight:600;'>Dzaky Jaisy Al-Qorney</td>
+                     <td style='padding:12px 8px; color:{C_PRIMARY};'>CACC349D6Y1657</td>
+                     <td style='padding:12px 8px; color:{C_PRIMARY};'>AI Engineer</td>
+                     <td style='padding:12px 8px;'><a style='color:{C_PRIMARY}; font-weight:500;' href='https://www.linkedin.com/in/dzaky-jaisy-al-qorney-002889327?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app' target='_blank'>Linkedin</a></td>
+                     <td style='padding:12px 8px;'><a style='color:{C_PRIMARY}; font-weight:500;' href='https://github.com/iMiNerVaa' target='_blank'>Github</a></td>
+                 </tr>
+                 <tr style='border-bottom:1px solid #f0f0f0;'>
+                     <td style='padding:12px 8px; color:{C_PRIMARY}; font-weight:600;'>Fhazar Raffiful Aqyla</td>
+                     <td style='padding:12px 8px; color:{C_PRIMARY};'>CFCC882D6Y0583</td>
+                     <td style='padding:12px 8px; color:{C_PRIMARY};'>Fullstack Developer</td>
+                     <td style='padding:12px 8px;'><a style='color:{C_PRIMARY}; font-weight:500;' href='https://www.linkedin.com/in/fhazaraqyla/' target='_blank'>Linkedin/</a></td>
+                     <td style='padding:12px 8px;'><a style='color:{C_PRIMARY}; font-weight:500;' href='https://github.com/Fhazar-Aqyla' target='_blank'>Github</a></td>
+                 </tr>
+                 <tr>
+                     <td style='padding:12px 8px; color:{C_PRIMARY}; font-weight:600;'>Muhammad Habib Rafi</td>
+                     <td style='padding:12px 8px; color:{C_PRIMARY};'>CFCC220D6Y1309</td>
+                     <td style='padding:12px 8px; color:{C_PRIMARY};'>Fullstack Developer</td>
+                     <td style='padding:12px 8px;'><a style='color:{C_PRIMARY}; font-weight:500;' href='https://www.linkedin.com/in/mhmdhabibrafi' target='_blank'>Linkedin</a></td>
+                     <td style='padding:12px 8px;'><a style='color:{C_PRIMARY}; font-weight:500;' href='https://github.com/mhmdhabibrafi' target='_blank'>Github</a></td>
+                 </tr>
+                </tbody>
+            </table>
+        </div>
+        """
+
+        st.markdown(teams_html, unsafe_allow_html=True)
+
+# ─────────────────────────────────────────────
 # FOOTER
 # ─────────────────────────────────────────────
+
 st.markdown(
     f"""
-    <div style='position:fixed; left:300px; right:0; bottom:0; background-color: {C_PRIMARY}; color: white; font-size: 13px; padding: 12px 0; margin: 0; border-radius: 0; z-index: 9999;'>
+    <div id='footer' style='position:fixed; left:0; right:0; bottom:0; background-color: {C_PRIMARY}; color: white; font-size: 13px; padding: 12px 0; margin: 0; border-radius: 0; z-index: 9999;'>
         <div style='display:flex; justify-content:center; align-items:center; width:100%;'>
             <p style='margin: 0; font-weight: 600;'>Sadar Finance - Coding Camp 2026 - CC26-PSU124</p>
         </div>
     </div>
+    <script>
+        // Monitor sidebar visibility and adjust footer position
+        const footer = document.getElementById('footer');
+        const sidebar = document.querySelector('[data-testid="stSidebar"]');
+        
+        function updateFooterPosition() {{
+            if (sidebar && sidebar.offsetParent !== null) {{
+                // Sidebar is visible
+                const sidebarWidth = sidebar.offsetWidth;
+                footer.style.left = sidebarWidth + 'px';
+            }} else {{
+                // Sidebar is hidden
+                footer.style.left = '0px';
+            }}
+        }}
+        
+        // Initial call
+        updateFooterPosition();
+        
+        // Monitor changes with MutationObserver
+        const observer = new MutationObserver(updateFooterPosition);
+        const config = {{ attributes: true, subtree: true, attributeFilter: ['style'] }};
+        if (sidebar) observer.observe(sidebar, config);
+        
+        // Also update on window resize
+        window.addEventListener('resize', updateFooterPosition);
+    </script>
     """,
     unsafe_allow_html=True
 )
