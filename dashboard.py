@@ -373,9 +373,9 @@ with st.sidebar:
         "Navigation",
         [
             "🏠 Overview",
-            "📊 EDA & Business Questions",
+            "📊 Interactive Business Questions",
             "📈 Financial Behavior",
-            "🔍 Interactive Exploration",
+            "🔍 Exploratory Data Analysis",
             "📋 Dataset Information",
             "👥 Teams"
         ]
@@ -610,9 +610,9 @@ if page == "🏠 Overview":
     )
 
 # ─────────────────────────────────────────────
-# EDA & BUSINESS QUESTIONS
+# INTERACTIVE BUSINESS QUESTIONS
 # ─────────────────────────────────────────────
-elif page == "📊 EDA & Business Questions":
+elif page == "📊 Interactive Business Questions":
 
     st.markdown(
         "<div class='section-title'>Business Questions Analysis</div>",
@@ -964,9 +964,9 @@ elif page == "📈 Financial Behavior":
     )
 
 # ─────────────────────────────────────────────
-# INTERACTIVE EXPLORATION
+# Exploratory Data Analysis
 # ─────────────────────────────────────────────
-elif page == "🔍 Interactive Exploration":
+elif page == "🔍 Exploratory Data Analysis":
 
     st.markdown(
         "<div class='section-title'>Interactive Data Exploration</div>",
@@ -1185,6 +1185,13 @@ elif page == "👥 Teams":
 
         teams_html = f"""
         <div class='card' style='margin-bottom: 100px;'>
+            <div style='margin-bottom: 24px;'>
+                <h3 style='color:{C_PRIMARY}; font-size:18px; font-weight:700; margin:0 0 5px 0;'>Tentang Proyek</h3>
+                <p style='color:{C_PRIMARY}; font-size:14px; line-height:1.8; margin:0;'>
+                SADAR Finance Dashboard dikembangkan oleh tim CC26-PSU124 sebagai bagian dari Capstone Project Coding Camp 2026. Proyek ini merupakan hasil kolaborasi lintas peran yang menggabungkan kemampuan Data Science, AI Engineering, dan Fullstack Development untuk menciptakan solusi analitik keuangan yang informatif, interaktif, dan berdampak.
+                </p>
+            </div>
+            <hr style='border:1px solid #f0f0f0; margin:20px 0;'>
             <table style='width:100%; border-collapse:collapse;'>
                 <thead>
                  <tr style='background:{C_PRIMARY}; color:white;'>
