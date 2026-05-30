@@ -10,7 +10,7 @@ from plotly.subplots import make_subplots
 # ─────────────────────────────────────────────
 st.set_page_config(
     page_title="SADAR Finance Dashboard",
-    page_icon="Logo-SADAR.png",
+    page_icon="Logo_SADAR.png",
     layout="wide",
     initial_sidebar_state="expanded"
 )
