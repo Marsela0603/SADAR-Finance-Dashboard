@@ -223,7 +223,7 @@ html, body, [class*="css"] {{
     font-size:26px;
     font-weight:800;
     color:{C_PRIMARY};
-    margin-top:30px;
+    margin-top:50px;
     margin-bottom:24px;
     animation: slideInLeft 0.7s ease-out;
     position: relative;
@@ -615,7 +615,7 @@ if page == "🏠 Overview":
 elif page == "📊 Interactive Business Questions":
 
     st.markdown(
-        "<div class='section-title'>Business Questions Analysis</div>",
+        "<div class='section-title'>Interactive Business Questions</div>",
         unsafe_allow_html=True
     )
 
@@ -969,7 +969,7 @@ elif page == "📈 Financial Behavior":
 elif page == "🔍 Exploratory Data Analysis":
 
     st.markdown(
-        "<div class='section-title'>Interactive Data Exploration</div>",
+        "<div class='section-title'>Exploratory Data Analysis</div>",
         unsafe_allow_html=True
     )
 
